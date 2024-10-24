@@ -1,0 +1,216 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* Home */
+.HomeParentMain{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 400px 400px;
+}
+
+
+
+.homemainimg{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+
+/* Bollywood */
+.main-heading{
+    text-align: left;
+    margin: 30px 0px 30px 0px;
+}
+.ChildMain{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+.BollyMainMovie{
+    width: 30%;
+    height: 30rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px #66889e;
+    overflow: hidden;
+}
+.BollyMainimg{
+    align-self: center;
+    width: 100%;
+    height: 200px;
+}
+.Title{
+    margin: 15px;
+    height: 30px;
+    text-align: left;
+    overflow: hidden;
+    animation: TitleShow 4s infinite;
+    transition: ease-in-out;
+    color: black;
+}
+.Title:hover{
+    color: #66889e;
+}
+@keyframes TitleShow {
+    0%{
+        width: 0px;
+        
+    }
+    100%{
+        width: 100%;
+    }
+}
+.description{
+    margin: 15px;
+    text-align: left;
+    color: black;
+}
+
+
+
+
+/* Details */
+.pardetailslogo{
+    display: flex;
+    justify-content: center;
+}
+.detailsParMain{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /* width: 500px; */
+}
+.detailschildmain{
+    width: 500px;
+    background-color: #dae4e8;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px #5fd2d4;
+
+}
+.DetailsTitle{
+    margin: 10px;
+    text-shadow: 1px 1px 3px #1c3342;
+}
+.Detailsimg{
+    width: 30rem;
+    align-self: center;
+    margin: 30px 0px 30px 0px;
+    box-shadow: 0px 0px 5px 1px #1c3342;
+}
+.DetailsDescription{
+    width: 30rem;
+    font-size: 25px;
+    text-align: left;
+}
+.MainDetails{
+    align-self: center;
+    text-align: center;
+}
+.BackButton{
+    top: 30px;
+    left : 30px;
+    position: fixed;
+    background-color: #5fd2d4;
+    padding: 10px;
+    color: #1c3342;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+}
+.BackButton:hover{
+    background-color: #1c331c;
+    color: #5fd2d4;
+    transition: 0.5s;
+    top: 33px;
+    left: 33px;
+    padding: 11px;
+    box-shadow: -1px -1px 3px 0px #1c331c;
+}
+.BackEroImg{
+    background-image: url(../assets/White_Left_Aero.png);
+    background-position: initial;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+}
+
+.DetailsMoreHead{
+    text-align: left;
+    margin: 20px 0px;
+}
+
+/* PERSONAL INFO */
+.personalintro{
+    display: flex;
+    gap: 30px;     
+}
+.animeImg{
+    background-image: url(../assets/Anime_Atar.png);
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+    width: 70px;
+}
+.namedate{
+    padding: 5px;
+    font-weight: lighter;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.socialmedia{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 10px;
+}
+.twitter{
+    background-image: url(../assets/Black-Twitter.png);
+    background-position: center;
+    background-size: cover;
+    height: 35px;
+    width: 35px;
+    animation: twitteranim 5s 0s infinite;
+}
+@keyframes twitteranim {
+    0%{
+
+    }
+    50%{
+
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+.facebook{
+    background-image: url(../assets/Black-Facebook.png);
+    background-position: center;
+    background-size: cover;
+    height: 35px;
+    width: 35px;
+}
+.YouTube{
+    background-image: url(../assets/Black-YouTube.png);
+    background-position: center;
+    background-size: cover;
+    height: 35px;
+    width: 35px;
+}
+.instagram{
+    background-image: url(../assets/Black-Inastagram.png);
+    background-position: center;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}
