@@ -4,6 +4,7 @@ import DataContext from "../Api/DataContext";
 import { useContext } from "react";
 import "./Blog.css";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const Bollywood = () => {
   const data = useContext(DataContext);
@@ -33,6 +34,7 @@ const Bollywood = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
