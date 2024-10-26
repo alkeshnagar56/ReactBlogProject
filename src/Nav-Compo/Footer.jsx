@@ -18,7 +18,7 @@ const Footer = () => {
               <span id="domain">Domain</span>
             </NavLink>
             <p className="footerboutblog">
-              The Siren is an informational website published on the World Wide
+              The Devil's Domain is an informational website published on the World Wide
               Web for providing details of different category.
             </p>
             <div className="socialmedia">
