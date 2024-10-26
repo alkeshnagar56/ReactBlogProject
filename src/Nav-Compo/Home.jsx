@@ -4,7 +4,6 @@ import DataContext from "../Api/DataContext";
 import "./Blog.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import AdData from "../Api/AdProvider";
 
 const Home = () => {
   const data = useContext(DataContext);
@@ -80,7 +79,7 @@ const Home = () => {
       item.id ===
       parseInt(SelectedArray[Math.round(Math.random() * SelectedArray.length)])
   );
-  const random = Math.round(Math.random() * data.length);
+  const random = Math.round(Math.random() * (data.length - 2));
 
   return (
     <>
@@ -171,8 +170,7 @@ const Home = () => {
         <div className="postsadvertise">
           <div className="toppost">
             <h1>Top Posts</h1>
-            <Link to={`/details/${data[random].id}`}
-            className="mainpost">
+            <Link to={`/details/${data[random].id}`} className="mainpost">
               <img src={data[random].img_url} />
               <p>{data[random].description}</p>
             </Link>
@@ -180,10 +178,10 @@ const Home = () => {
           <div className="normalpost">
             {data.slice(12, 16).map((item) => (
               <>
-              <Link to={`/details/${item.id}`}>
-                <div className="post">
-                  <img src={item.img_url} />
-                  <p>{item.description}</p>
+                <Link to={`/details/${item.id}`}>
+                  <div className="post">
+                    <img src={item.img_url} />
+                    <p>{item.description}</p>
                   </div>
                 </Link>
               </>
