@@ -1,0 +1,74 @@
+/* Reset global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Limit body styling to the loader container */
+.loader-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    font-family: 'Arial', sans-serif;
+}
+
+.heading-container {
+    text-align: center;
+   
+}
+
+/* Loader heading styling */
+.loaderheading {
+    font-size: 4rem;
+    color: #fff;
+    position: relative;
+    top: 270px;
+
+}
+
+.devils {
+    display: inline-block;
+    transform: translateY(-100px);
+    animation: fall 2s ease forwards;
+    color: #111;
+}
+
+.domain {
+    display: inline-block;
+    font-size: 4rem;
+    color: #ff4444;
+    position: relative;
+}
+
+.devils::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #ff4444;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+/* Keyframes for falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0);
+    }
+    25% {
+        transform: translateY(20px) rotate(-10deg);
+    }
+    50% {
+        transform: translateX(15px) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-30px) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
