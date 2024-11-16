@@ -122,7 +122,7 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img1.img_url || "fallback-image-url"}
+                    src={img1.img_url || "https://steelsupplements.com/cdn/shop/articles/shutterstock_1936861222_1000x.jpg?v=1617886529"}
                   />
                   <div className="homeblankdiv">
                     <h2>{img1.title}</h2>
@@ -135,7 +135,7 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img2.img_url}
+                    src={img2.img_url || "https://kitchenatics.com/wp-content/uploads/2021/07/Vietnamese-Spring-Rolls-1.jpg"}
                   />
                   <div className="homeblankdiv">
                     <h2>{img2.title}</h2>
@@ -148,7 +148,7 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img3.img_url}
+                    src={img3.img_url || "https://www.pbs.org/newshour/app/uploads/2016/05/hyperloop-1024x502.jpg"}
                   />
                   <div className="homeblankdiv">
                     <h2>{img3.title}</h2>
