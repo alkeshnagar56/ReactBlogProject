@@ -1,11 +1,34 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Navbar from "./Navbar";
 import DataContext from "../Api/DataContext";
 import "./Blog.css";
 import { Link } from "react-router-dom";
-
+import BannerAd from "./BannerAd";
+import Footer from "./Footer";
 
 const Hollywood = () => {
+  const [isloading, setIsloading] = useState(true);
+  const [load, setload] = useState(2);
+  const [visible, setvisible] = useState(1);
+  const [limit, setlimit] = useState(true);
+
+  const handleload = () => {
+    setload((prev) => prev + 3);
+    setvisible((prev) => prev + 6);
+    if (load >= 8) {
+      setlimit(false);
+    }
+  };
+
+  useEffect(() => {
+    const loader = () => {
+      setTimeout(() => {
+        setIsloading(false);
+      }, 1000);
+    };
+    loader();
+  }, []);
+
   const data = useContext(DataContext);
   const HollyMovies = data.filter((item) => item.category == "Hollywood");
   const AdData = [
@@ -59,80 +82,89 @@ const Hollywood = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj4-jV0m2-25zSuMI4BCm3P7Z7V6D1wWcdLA&s",
     },
   ];
-  const random = Math.round(Math.random() * (HollyMovies.length-2));
+  const random = Math.round(Math.random() * (HollyMovies.length - 2));
 
   return (
     <>
       <Navbar />
-      <div className="Bollywoodmain">
-        <h1 className="main-heading">Hollywood</h1>
-        <div className="ChildMain">
-          {HollyMovies.slice(7, 10).map((item) => (
-            <>
-              <div className="BollyMainMovie">
-                <Link to={`/details/${item.id}`}>
-                  <img
-                    src={item.img_url}
-                    alt="Bollywood movie"
-                    className="BollyMainimg"
-                  />
-                  <h3 className="Title">{item.title}</h3>
-                  <p className="description">{item.description}</p>
+      {isloading ? (
+        <div class="loader"></div>
+      ) : (
+        <>
+          <div className="Bollywoodmain">
+            <h1 className="main-heading">Hollywood</h1>
+            <div className="ChildMain">
+              {HollyMovies.slice(7, 10).map((item) => (
+                <>
+                  <div className="BollyMainMovie">
+                    <Link to={`/details/${item.id}`}>
+                      <img
+                        src={item.img_url}
+                        alt="Bollywood movie"
+                        className="BollyMainimg"
+                      />
+                      <h3 className="Title">{item.title}</h3>
+                      <p className="description">{item.description}</p>
+                    </Link>
+                  </div>
+                </>
+              ))}
+            </div>
+          </div>
+
+          <div className="storypost">
+            <div className="topstories">
+              <div className="homeheading">
+                <h1>Top Stories</h1>
+                <div className="homeheadunderline"></div>
+              </div>
+              {HollyMovies.slice(0, load).map((item) => (
+                <>
+                  <Link className="storydata" to={`/details/${item.id}`}>
+                    <div className="storyimg">
+                      <img
+                        className="imagestory"
+                        src={item.img_url}
+                        alt="data"
+                      />
+                      <h3 className="storycategory">{item.category}</h3>
+                    </div>
+                    <div className="titledescription">
+                      <h2 className="Title storytitle">{item.title}</h2>
+                      <p className="storydescription description">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
+                </>
+              ))}
+            </div>
+
+            <div className="postsadvertise">
+              <div className="toppost">
+                <h1>Top Posts</h1>
+                <Link
+                  to={`/details/${HollyMovies[random].id}`}
+                  className="mainpost"
+                >
+                  <img src={HollyMovies[random].img_url} />
+                  <p>{HollyMovies[random].description}</p>
                 </Link>
               </div>
-            </>
-          ))}
-        </div>
-      </div>
+              <div className="normalpost">
+                {HollyMovies.slice(0, visible).map((item) => (
+                  <>
+                    <Link to={`/details/${item.id}`}>
+                      <div className="post">
+                        <img src={item.img_url} />
+                        <p>{item.description}</p>
+                      </div>
+                    </Link>
+                  </>
+                ))}
+              </div>
 
-
-      <div className="storypost">
-        <div className="topstories">
-          <div className="homeheading">
-            <h1>Top Stories</h1>
-            <div className="homeheadunderline"></div>
-          </div>
-          {HollyMovies.slice(0, 16).map((item) => (
-            <>
-              <Link className="storydata" to={`/details/${item.id}`}>
-                <div className="storyimg">
-                  <img className="imagestory" src={item.img_url} alt="data" />
-                  <h3 className="storycategory">{item.category}</h3>
-                </div>
-                <div className="titledescription">
-                  <h2 className="Title storytitle">{item.title}</h2>
-                  <p className="storydescription description">
-                    {item.description}
-                  </p>
-                </div>
-              </Link>
-            </>
-          ))}
-        </div>
-
-        <div className="postsadvertise">
-          <div className="toppost">
-            <h1>Top Posts</h1>
-            <Link to={`/details/${HollyMovies[random].id}`}
-            className="mainpost">
-              <img src={HollyMovies[random].img_url} />
-              <p>{HollyMovies[random].description}</p>
-            </Link>
-          </div>
-          <div className="normalpost">
-            {HollyMovies.slice(12, 16).map((item) => (
-              <>
-              <Link to={`/details/${item.id}`}>
-                <div className="post">
-                  <img src={item.img_url} />
-                  <p>{item.description}</p>
-                  </div>
-                </Link>
-              </>
-            ))}
-          </div>
-
-          <div className="advertisement">
+              {/* <div className="advertisement">
             <div className="AdHeading">
               <p>Advertisement</p>
             </div>
@@ -147,9 +179,18 @@ const Hollywood = () => {
                 </>
               ))}
             </div>
+          </div> */}
+            </div>
           </div>
-        </div>
-      </div>
+          {limit && (
+            <button className="loadmorebtn" onClick={handleload}>
+              Load More
+            </button>
+          )}
+          <BannerAd />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

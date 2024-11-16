@@ -5,14 +5,21 @@ import { useContext } from "react";
 import "./Blog.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import BannerAd from "./BannerAd";
+
 
 const Bollywood = () => {
   const [isloading, setIsloading] = useState(true);
   const [load, setload] = useState(2);
   const [visible, setvisible] = useState(1);
+  const [limit, setlimit]=useState(true);
+
   const handleload = () => {
     setload((prev)=>prev+3);
     setvisible((prev)=>prev+6);
+    if(load >= 8){
+      setlimit(false);
+    }
   };
 
   useEffect(() => {
@@ -177,7 +184,8 @@ const Bollywood = () => {
           </div> */}
             </div>
           </div>
-          <button onClick={handleload}>Load More</button>
+         {limit && <button className="loadmorebtn" onClick={handleload}>Load More</button>}
+         <BannerAd/>
           <Footer />
         </>
       )}

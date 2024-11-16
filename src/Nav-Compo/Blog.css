@@ -197,11 +197,11 @@
 }
 
 .normalpost{
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .post{
     width: 100%;
-    height: 125px;
+    height: 135px;
     display: flex;
     overflow: hidden;
     border-bottom: 2px solid transparent;
@@ -213,7 +213,7 @@
     background-size: 100% 1px, 1px 100%;
     gap: 50px;
     padding: 10px 10px 10px 60px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .post>img{
     width: 100px;
@@ -259,7 +259,7 @@
 
     }
     50%{
-        width: 170px;
+        width: 200px;
     }
     60%{
         color: chocolate;
@@ -282,8 +282,16 @@
 }
 .AdImg{
     border-radius: 10px;
-    width: 380px;
-    height: 380px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* BannerAd */
+
+.banneradimg{
+    width: 100%;
+    height: auto;
 }
 
 
@@ -293,6 +301,10 @@
 .loader {
     width: 50px;
     aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
     display: grid;
   }
   .loader::before,
@@ -371,7 +383,19 @@
     text-align: left;
     color: black;
 }
-
+.loadmorebtn{
+    width: 15%;
+    padding: 20px;
+    background-color: #5fd2d4;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.loadmorebtn:hover{
+    background-color: #1c331c;
+    color: white;
+    transition: 0.5s;
+}
 
 /* Details */
 .pardetailslogo{
@@ -451,6 +475,7 @@
     gap: 30px;     
 }
 .paranimenamedate{
+    width: 50%;
     display: flex;
     gap: 30px;
 }
@@ -815,6 +840,10 @@ align-self: flex-start;
     .AdImg{
         width: 100%;
         height: auto;
+    }
+    .loadmorebtn{
+        width: 50%;
+        padding: 10px;
     }
 
 
