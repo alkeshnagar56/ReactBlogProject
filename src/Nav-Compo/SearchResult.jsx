@@ -4,10 +4,13 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 
 const SearchResult = () => {
     const Data = useContext(DataContext)
+    console.log(Data)
     const { SearchText } = useParams();
     const navigate = useNavigate();
+    console.log(SearchText,"sesx ks mk")
 
     const SearchItem = Data.filter((item)=>item.title.toLowerCase().includes(SearchText.toLowerCase()))
+    console.log(SearchItem, "SearchItem");
 
 //   const searchData = data.filter((item) =>
 //     item.title.toLowerCase().includes(searchText.toLowerCase())
