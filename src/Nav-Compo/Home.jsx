@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Navbar from "./Navbar";
 import DataContext from "../Api/DataContext";
 import "./Blog.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import FirstLoadig from "../FirstLoadig";
 import BannerAd from "./BannerAd";
@@ -10,6 +10,12 @@ import BannerAd from "./BannerAd";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const data = useContext(DataContext);
+  const [SearchText, setSearchText] = useState([]);
+  const navigate = useNavigate();
+
+  const HandleSearch = () => {
+    navigate(`/Results/${SearchText}`);
+  }
 
   const handleLoadingComplete = () => {
     setLoading(false);
@@ -68,9 +74,7 @@ const Home = () => {
       (item) =>
         item.id ===
         parseInt(
-          SelectedArray[
-            Math.round(Math.random() * (SelectedArray.length))
-          ]
+          SelectedArray[Math.round(Math.random() * SelectedArray.length)]
         )
     ) || {};
 
@@ -115,6 +119,20 @@ const Home = () => {
       ) : (
         <>
           <Navbar />
+
+          <div className="ParInputSearch">
+            <input
+              type="text"
+              placeholder="Enter Title"
+              value={SearchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="SearchInput"
+            />
+            <button className="SearchButton" onClick={HandleSearch}>
+              Search
+            </button>
+          </div>
+
           <div className="HomeParentMain">
             <div className="headergrid">
               <div className="headerbox1 headerbox">
@@ -122,7 +140,10 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img1.img_url || "https://steelsupplements.com/cdn/shop/articles/shutterstock_1936861222_1000x.jpg?v=1617886529"}
+                    src={
+                      img1.img_url ||
+                      "https://steelsupplements.com/cdn/shop/articles/shutterstock_1936861222_1000x.jpg?v=1617886529"
+                    }
                   />
                   <div className="homeblankdiv">
                     <h2>{img1.title}</h2>
@@ -135,7 +156,10 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img2.img_url || "https://kitchenatics.com/wp-content/uploads/2021/07/Vietnamese-Spring-Rolls-1.jpg"}
+                    src={
+                      img2.img_url ||
+                      "https://kitchenatics.com/wp-content/uploads/2021/07/Vietnamese-Spring-Rolls-1.jpg"
+                    }
                   />
                   <div className="homeblankdiv">
                     <h2>{img2.title}</h2>
@@ -148,7 +172,10 @@ const Home = () => {
                   <img
                     className="homemainimg"
                     alt="loading"
-                    src={img3.img_url || "https://www.pbs.org/newshour/app/uploads/2016/05/hyperloop-1024x502.jpg"}
+                    src={
+                      img3.img_url ||
+                      "https://www.pbs.org/newshour/app/uploads/2016/05/hyperloop-1024x502.jpg"
+                    }
                   />
                   <div className="homeblankdiv">
                     <h2>{img3.title}</h2>

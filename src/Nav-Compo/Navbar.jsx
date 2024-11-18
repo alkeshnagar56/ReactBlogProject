@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import DataContext from "../Api/DataContext";
 
 const Navbar = () => {
 
 
 useEffect(()=>{
+  const Data = useContext(DataContext)
+
   const hamburger = document.querySelector('.hamburger');
   const menu_bar = document.querySelector('.menu-bar');
 
@@ -94,6 +97,7 @@ useEffect(()=>{
         </div>
         </nav>
       </div>
+     
     </>
   );
 };

@@ -7,6 +7,7 @@ import Hollywood from './Nav-Compo/Hollywood';
 import Fitness from './Nav-Compo/Fitness';
 import Food from './Nav-Compo/Food';
 import Details from './Nav-Compo/Details';
+import SearchResult from './Nav-Compo/SearchResult'
 
 const RouteFile = () => {
   return (
@@ -21,6 +22,7 @@ const RouteFile = () => {
             <Route path='/Fitness' element={<Fitness/>} />
             <Route path='/Food' element={<Food  />} />
             <Route path='/details/:id' element={<Details/>}></Route>
+            <Route path='/Results/:item' element={<SearchResult />}></Route>
         </Routes>
     </Router>
     </>
