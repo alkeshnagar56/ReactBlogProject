@@ -409,7 +409,7 @@
     display: flex;
 }
 .detailschildmain{
-    width: 500px;
+    width: 550px;
     background-color: #dae4e8;
     padding: 30px;
     margin: 20px;
@@ -902,5 +902,8 @@ align-self: flex-start;
     }
     .namedate{
         gap: 20px;
+    }
+    .paranimenamedate{
+        width: 100%;
     }
 }

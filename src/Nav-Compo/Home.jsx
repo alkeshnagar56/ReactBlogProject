@@ -69,7 +69,7 @@ const Home = () => {
         item.id ===
         parseInt(
           SelectedArray[
-            Math.round(Math.random() * (SelectedArray.length - 2)) + 1
+            Math.round(Math.random() * (SelectedArray.length))
           ]
         )
     ) || {};
