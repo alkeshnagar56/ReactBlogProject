@@ -9,8 +9,8 @@ import BannerAd from "./BannerAd";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [SearchText, setSearchText] = useState("");
   const data = useContext(DataContext);
-  const [SearchText, setSearchText] = useState([]);
   const navigate = useNavigate();
 
   const HandleSearch = () => {
