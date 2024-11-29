@@ -22,7 +22,7 @@ const RouteFile = () => {
             <Route path='/Fitness' element={<Fitness/>} />
             <Route path='/Food' element={<Food  />} />
             <Route path='/details/:id' element={<Details/>}></Route>
-            <Route path='/Results/:item' element={<SearchResult />}></Route>
+            <Route path='/Results/:SearchText' element={<SearchResult />}></Route>
         </Routes>
     </Router>
     </>

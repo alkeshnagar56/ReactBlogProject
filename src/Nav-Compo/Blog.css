@@ -4,6 +4,77 @@
 }
 /* Home */
 
+.ParInputSearch{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.SearchInput{
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #66889e;
+    font-size: 20px;
+}
+.SearchButton{
+    width: 10%;
+    border-radius: 5px;
+    background-color: #5fd2d4;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px 1px #66889e;
+}
+.SearchButton:hover{
+    background-color: #1c3342;
+}
+
+/* Media Screen Search  */
+.searchimgoption{
+    display: none;
+
+}
+.Search::before{
+    content: '';
+    position: absolute;
+    top: 95%;
+    left: 0%;
+    transition: all 0.5% linear;
+}
+@media screen and (max-width:600px) {
+    .searchimgoption{
+        display: block;
+        background-image: url(../assets/SearchIcon.png);
+        background-position: center;
+        background-size: cover;
+        height: 50px;
+        width: 50px;
+        
+        /* background-color: black; */
+    }
+    .ParInputSearch{
+        z-index: 2;
+        position: fixed;
+        top: 60%;
+        left: -4%;
+        width: 90%;
+        gap: 0px;
+        height: auto;
+        flex-direction: column;
+        transition: 0.5s;
+        /* background-color: #82d2d5; */
+        text-align: center;
+        border-radius: 20px;
+    }
+    .ParInputSearch.SearchActive{
+        top: 100px;
+        right: 20px;
+    }
+}
+
 .headergrid{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -295,6 +366,36 @@
 }
 
 
+
+/* SearchResult */
+.SearchResultHead{
+    margin: 20px;
+}
+.ResultContainer{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.resultData{
+    width: 50%;
+    background-color: #dae4e8;
+    padding: 50px;
+    border-radius: 10px;
+}
+.resultData>img{
+    width: 100%;
+    /* height: 250px; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px #66889e;
+}
+.resultData>p{
+    margin-top: 30px;
+    text-decoration: none;
+    color: #1c331c;
+    font-size: 18px;
+    text-align: left;
+}
+
 /* Bollywood */
 
 /* HTML: <div class="loader"></div> */
@@ -466,7 +567,6 @@
     background-size: cover;
     width: 25px;
     height: 25px;
-    margin-top: 4px;
 }
 
 /* PERSONAL INFO */
@@ -765,6 +865,7 @@ align-self: flex-start;
 
 /* Media Screeen */
 @media screen and (max-width: 600px) {
+
     .headergrid{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 2fr 1fr;

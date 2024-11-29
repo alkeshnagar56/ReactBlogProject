@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "./Navbar";
 import DataContext from "../Api/DataContext";
 import "./Blog.css";
@@ -14,8 +14,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const HandleSearch = () => {
-    navigate(`/Results/${SearchText}`);
-  }
+    if (SearchText) {
+      navigate(`/Results/${SearchText}`);
+    }
+  };
 
   const handleLoadingComplete = () => {
     setLoading(false);
@@ -111,6 +113,77 @@ const Home = () => {
     random = random - 1;
   }
 
+  // Search Bar Media Screen
+
+  // useEffect(() => {
+  //   const WebSearch = document.querySelector(".searchimgoption");
+  //   const MediaSearch = document.querySelector(".ParInputSearch");
+
+  //   const toggle_Search = () => {
+  //     WebSearch.classList.toggle("SearchActive");
+  //     MediaSearch.classList.toggle("SearchActive");
+  //   };
+
+  //   const Close_Search = () => {
+  //     WebSearch.classList.remove("SearchActive");
+  //     MediaSearch.classList.remove("SearchActive");
+  //   };
+
+  //   if(WebSearch){
+  //     WebSearch.addEventListener('click', toggle_Search)
+  //   }
+
+  //   if(MediaSearch){
+  //       MediaSearch.addEventListener('click', toggle_Search)
+  //   }
+  //   return () => {
+  //     // if (WebSearch) {
+  //     //   WebSearch.removeEventListener("click", toggle_Search);
+  //     //   // console.log("xerdcfgbjhnkml")
+  //     // }
+
+  
+  //     // if(MediaSearch){
+  //     // MediaSearch.removeEventListener("click", Close_Search);
+  //     // }
+
+ 
+  //   };
+  // }, []);
+
+
+
+
+
+  const [isSearchActive, setIsSearchActive] = useState(false);
+
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      const WebSearch = document.querySelector(".searchimgoption");
+      const MediaSearch = document.querySelector(".ParInputSearch");
+
+      // Close search if clicked outside
+      if (
+        WebSearch &&
+        MediaSearch &&
+        !WebSearch.contains(event.target) &&
+        !MediaSearch.contains(event.target)
+      ) {
+        setIsSearchActive(false);
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
+
+  const toggleSearch = () => {
+    setIsSearchActive((prev) => !prev);
+  };
+
+
   return (
     <>
       {loading ? (
@@ -120,18 +193,52 @@ const Home = () => {
         <>
           <Navbar />
 
-          <div className="ParInputSearch">
+          {/* <div className="ParInputSearch">
             <input
               type="text"
               placeholder="Enter Title"
               value={SearchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="SearchInput"
+              className="SearchInput search"
             />
-            <button className="SearchButton" onClick={HandleSearch}>
-              Search
+            <button className="SearchButton search" onClick={HandleSearch}>
+              Search 🔍
             </button>
           </div>
+          <div className="searchimgoption"></div> */}
+
+
+
+
+
+
+
+<div
+            className={`ParInputSearch ${isSearchActive ? "SearchActive" : ""}`}
+          >
+            <input
+              type="text"
+              placeholder="Enter Title"
+              value={SearchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="SearchInput search"
+            />
+            <button className="SearchButton search" onClick={HandleSearch}>
+              Search 🔍
+            </button>
+          </div>
+          <div
+            className={`searchimgoption ${isSearchActive ? "SearchActive" : ""}`}
+            onClick={toggleSearch}
+          ></div>
+
+
+
+
+
+
+
+
 
           <div className="HomeParentMain">
             <div className="headergrid">
