@@ -154,34 +154,34 @@ const Home = () => {
 
 
 
+  // chatgpt code 
+  // const [isSearchActive, setIsSearchActive] = useState(false);
 
-  const [isSearchActive, setIsSearchActive] = useState(false);
+  // useEffect(() => {
+  //   const handleDocumentClick = (event) => {
+  //     const WebSearch = document.querySelector(".searchimgoption");
+  //     const MediaSearch = document.querySelector(".ParInputSearch");
 
-  useEffect(() => {
-    const handleDocumentClick = (event) => {
-      const WebSearch = document.querySelector(".searchimgoption");
-      const MediaSearch = document.querySelector(".ParInputSearch");
+  //     // Close search if clicked outside
+  //     if (
+  //       WebSearch &&
+  //       MediaSearch &&
+  //       !WebSearch.contains(event.target) &&
+  //       !MediaSearch.contains(event.target)
+  //     ) {
+  //       setIsSearchActive(false);
+  //     }
+  //   };
 
-      // Close search if clicked outside
-      if (
-        WebSearch &&
-        MediaSearch &&
-        !WebSearch.contains(event.target) &&
-        !MediaSearch.contains(event.target)
-      ) {
-        setIsSearchActive(false);
-      }
-    };
+  //   document.addEventListener("click", handleDocumentClick);
+  //   return () => {
+  //     document.removeEventListener("click", handleDocumentClick);
+  //   };
+  // }, []);
 
-    document.addEventListener("click", handleDocumentClick);
-    return () => {
-      document.removeEventListener("click", handleDocumentClick);
-    };
-  }, []);
-
-  const toggleSearch = () => {
-    setIsSearchActive((prev) => !prev);
-  };
+  // const toggleSearch = () => {
+  //   setIsSearchActive((prev) => !prev);
+  // };
 
 
   return (
@@ -193,7 +193,7 @@ const Home = () => {
         <>
           <Navbar />
 
-          {/* <div className="ParInputSearch">
+          <div className="ParInputSearch">
             <input
               type="text"
               placeholder="Enter Title"
@@ -205,13 +205,13 @@ const Home = () => {
               Search 🔍
             </button>
           </div>
-          <div className="searchimgoption"></div> */}
+          <div className="searchimgoption"></div>
 
 
 
 
 
-
+{/* 
 
 <div
             className={`ParInputSearch ${isSearchActive ? "SearchActive" : ""}`}
@@ -231,7 +231,7 @@ const Home = () => {
             className={`searchimgoption ${isSearchActive ? "SearchActive" : ""}`}
             onClick={toggleSearch}
           ></div>
-
+ */}
 
 
 
